@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        h1{
+            margin-left: 530px;
+        }
+        body
+        {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: 300;
+            font-size: 16pt;
+            font-style: italic;
+            align-items: center;
+        }
+        .error
+        {
+            color: Red;
+            margin-bottom: 10px;
+        }
+        input
+        {
+            width: 160px;
+        }
+        button{
+            
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CAT-03</h1>
+    <h3>Form Validation using Angular Js</h3>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
+    <script type="text/javascript">
+        var app = angular.module('MyApp', [])
+        app.controller('MyController', function ($scope) {
+        });
+    </script>
+    <div ng-app="MyApp" ng-controller="MyController">
+        <form name="MyForm" ng-submit="MyForm.$valid" novalidate>
+        <table border="0" cellpadding="0" cellspacing="5">
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" ng-model="Name" name="Name" required /></td>
+                <td>
+                    <span class="error" ng-show="MyForm.Name.$dirty && MyForm.Name.$error.required">*Required</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="email" ng-model="EmailAddress" name="Email" required /></td>
+                <td>
+                    <span class="error" ng-show="MyForm.Email.$dirty && MyForm.Email.$error.required">*Required</span>
+                    <span class="error" ng-show="!MyForm.Email.$error.required && MyForm.Email.$invalid">*Invalid Email Address</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Age:</td>
+                <td><input type="number" ng-model="Age" name="Age" required /></td>
+                <td>
+                    <span class="error" ng-show="MyForm.Age.$dirty && MyForm.Age.$error.required">*Required</span>
+                    <span class="error" ng-show="!MyForm.Age.$error.required && MyForm.Age.$invalid">*Only numerical value</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Message: </td>
+                <td><input type="text" ng-model="msg" name="msg" required /></td>
+                <td>
+                    <span class="error" ng-show="MyForm.msg.$dirty && MyForm.msg.$error.required">*Required</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <hr />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="right">
+                    <button type="submit" ng-disabled="MyForm.$invalid">
+                        Submit</button>
+                </td>
+            </tr>
+            
+        </table>
+        </form>
+    </div>
+</body>
+</html>

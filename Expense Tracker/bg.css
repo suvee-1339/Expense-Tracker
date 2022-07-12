@@ -1,0 +1,92 @@
+
+body {
+    overflow: hidden;
+    height: 100vh;
+    background: #091833;
+    
+  }
+  
+  .box {
+    max-width: 500px;
+    margin: 30px auto;
+    
+    border-radius: 8px;
+    padding: 20px;
+}
+        .comment {
+    display: block;
+    transition: all 1s;
+}
+.afterText {
+    min-height: 0px;
+    border: 1px solid #eee;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 10px
+}
+  .box textarea {
+    width: 100%;
+    border: none;
+    background:white;
+    padding: 15px;
+    height: 100px;
+    border-radius: 10px;
+    transition: all 0.5s;
+    margin-top: 35px;
+    color: black;
+    font-family: montserrat;
+}
+        button.btn-box {
+    background: white;
+    color: black;
+  margin-left: 200px;
+  margin-top: 100px;
+    padding: 20px 5px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    transition: 1s all;
+    font-size: 10px;
+    border-radius: 15px;
+    margin-top: 30px;
+}
+        button.btn-box:hover {
+    background: cyan;
+
+}
+h1 {
+  margin-top: 30px;
+font-size: 30px;
+text-align: center;
+color: white;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+font-style: italic;
+}
+  section {
+    height: 100vh;
+  }
+  
+  span {
+    position: absolute;
+    pointer-events: none;
+    background: #fff;
+    animation: animate 5s linear infinite;
+  }
+  
+  @keyframes animate {
+    0% {
+      transform: scale(0) translateY(0) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1) translateY(-500%) rotate(360deg);
+      opacity: 0;
+    }
+  }

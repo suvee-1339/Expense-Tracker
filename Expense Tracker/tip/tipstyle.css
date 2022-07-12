@@ -1,0 +1,99 @@
+body {
+  font-family: "Archivo Black", sans-serif;
+  background: #38618c;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.words {
+  color: #ff5964;
+  font-size: 0;
+  line-height: 1.5;
+}
+
+.words span {
+  font-size: 3rem;
+  display: inline-block;
+  animation: move 3s ease-in-out infinite;
+}
+
+@keyframes move {
+  0% {
+    transform: translate(-30%, 0);
+  }
+  50% {
+    text-shadow: 0 25px 50px rgba(0, 0, 0, 0.75);
+  }
+  100% {
+    transform: translate(30%, 0);
+  }
+}
+
+.words span:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.words span:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.words span:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+.words span:nth-child(5) {
+  animation-delay: 2s;
+}
+
+.words span:nth-child(6) {
+  animation-delay: 2.5s;
+}
+
+.words span:nth-child(7) {
+  animation-delay: 3s;
+}
+
+#calculator {
+  background-color: white;
+  width: 350px;
+  height: 350px;
+  color: #434A54;
+  padding: 55px;
+  padding-top: 60px;
+  border-style: none;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 40px;
+}
+input {
+  float: right;
+  clear: both;
+  width: 125px;
+  height: 30px;
+  margin-top: 5px;
+  text-align: center;
+  font-size: 20px;
+}
+p {
+  font-size: 25px;
+}
+h1 {
+  font-size: 40px;
+  text-align: center;
+  color: white;
+}
+#Final {
+  background-color: #ff5964;
+  border-style: none;
+  border-radius: 20px;
+  padding-right: 10px;
+  width: 220px;
+  height: 40px;
+  color: #fff;
+  font-size: 30px;
+  margin-right: 80px;
+  margin-top: 30px;
+}

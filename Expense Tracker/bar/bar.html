@@ -1,0 +1,98 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="barstyle.css" media="screen" type="text/css" />
+<style type="text/css">
+div
+{
+    float: left;
+    margin-right: 200px;
+}
+div p
+{ 
+    text-align: center;
+}
+</style>
+<script type="text/javascript">
+var participant = [];
+var maxPoints = 200;
+var barWidth = 20;
+
+window.onload = function()
+{
+    document.getElementsByTagName('input')[0].value = maxPoints;
+}
+
+function setMaxPoints()
+{
+    maxPoints = document.getElementsByTagName('input')[0].value;
+}
+
+function gatherData()
+{
+    var name = window.prompt('Please enter the expense name:');
+    name = name.replace(/\s+/g, '');
+    if ((/[^A-Z\s\-\']/gi.test(name)) || (name == '') || (name == 'undefined'))
+    {
+        alert ('You must enter a valid name! ');
+        return;
+    }
+
+    var points = window.prompt('Please enter the expense amount:');
+    points = parseInt(points, 10);
+    if ((/[^0-9\s\-\']/gi.test(points)) || (points == ''))
+    {
+        alert ('You must enter a valid number! ');
+        return;
+    }
+
+    participant.push({name: name, points: points});
+
+    createChart();
+};
+
+function createChart ()
+{
+    var i = 0;
+    var len = participant.length;
+    var bar = null;
+
+    var container = document.getElementById('chart');
+    container.innerHTML='';
+
+    while (i < len)
+    {
+
+        bar = document.createElement('div');
+        bar.style.width = barWidth + 'px';
+        bar.style.marginBottom = '5px';
+        bar.style.backgroundColor = getRandomColor();
+
+        bar.style.height = ((participant[i].points / maxPoints) * 200) + 'px';
+        bar.style.marginTop = 200 - parseInt(bar.style.height) + 'px';
+        percent = ((participant[i].points / maxPoints) * 100) + '%';
+
+        bar.innerHTML = ['<p style="margin-top: ' + (parseInt(bar.style.height) - 17) + 'px">',  percent, '<br />', participant[i].name, '</p>'].join('');
+
+        container.appendChild(bar);
+
+        i = i + 1;
+    }
+};
+
+function getRandomColor ()
+{
+    return ['rgb(', Math.floor(Math.random() * 255), ', ', Math.floor(Math.random() * 255), ', ', Math.floor(Math.random() * 255), ')'].join('');
+};
+</script>
+</head>
+
+<body>
+    <h1>Visualize Your Expense</h1>
+    <h3>Comparisons between categories of Expense</h3>
+    <label><input size="10" onkeyup="setMaxPoints()" /> <div id="max">Set Max Amount</div></label><br /><br />
+    <button onclick="gatherData()">Add Expense Name</button>
+    <h4>Chart : </h4>
+    <div id="chart"></div>
+</body>
+</html>
